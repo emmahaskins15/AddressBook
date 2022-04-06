@@ -12,82 +12,42 @@ namespace Program9
 {
     public partial class Modify : Form
     {
-        public Modify()
+        int _id;
+        public Modify(int id)
         {
+            _id = id;
             InitializeComponent();
         }
-
-        private void personBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.personBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.personDataSet);
-            MessageBox.Show("Entry saved.");
-            this.Close();
-
-        }
-
         private void Modify_Load(object sender, EventArgs e)
         {
+
             // TODO: This line of code loads data into the 'personDataSet.Person' table. You can move, or remove it, as needed.
-            this.personTableAdapter.Fill(this.personDataSet.Person);
+            this.personTableAdapter.FillById(this.personDataSet.Person, _id);
 
         }
 
-
-        private void lastNameTextBox_TextChanged(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void firstNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void firstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void streetLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void streetTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cityLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cityTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void stateLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void stateTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void zipcodeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void zipcodeTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+            // Validate data
+            if (lastNameTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter a last name.");
+                lastNameTextBox.Focus();
+            }
+            else if (firstNameTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter a first name.");
+                firstNameTextBox.Focus();
+            }
+            else
+            {
+                // Save changes; close form
+                this.Validate();
+                this.personBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.personDataSet);
+                MessageBox.Show("Entry saved.");
+                this.Close();
+            }
         }
     }
 }

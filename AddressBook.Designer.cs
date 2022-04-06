@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridContacts = new System.Windows.Forms.DataGridView();
+            this.textBoxQuery = new System.Windows.Forms.TextBox();
+            this.btnDisplayAll = new System.Windows.Forms.Button();
+            this.btnDetails = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,9 +42,6 @@
             this.zipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personDataSet = new Program9.PersonDataSet();
-            this.textBoxQuery = new System.Windows.Forms.TextBox();
-            this.btnDisplayAll = new System.Windows.Forms.Button();
-            this.btnDetails = new System.Windows.Forms.Button();
             this.personTableAdapter = new Program9.PersonDataSetTableAdapters.PersonTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridContacts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
@@ -69,8 +69,37 @@
             this.dataGridContacts.MultiSelect = false;
             this.dataGridContacts.Name = "dataGridContacts";
             this.dataGridContacts.ReadOnly = true;
+            this.dataGridContacts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridContacts.Size = new System.Drawing.Size(648, 388);
             this.dataGridContacts.TabIndex = 0;
+            // 
+            // textBoxQuery
+            // 
+            this.textBoxQuery.Location = new System.Drawing.Point(12, 24);
+            this.textBoxQuery.Name = "textBoxQuery";
+            this.textBoxQuery.Size = new System.Drawing.Size(342, 20);
+            this.textBoxQuery.TabIndex = 1;
+            this.textBoxQuery.TextChanged += new System.EventHandler(this.textBoxQuery_TextChanged);
+            // 
+            // btnDisplayAll
+            // 
+            this.btnDisplayAll.Location = new System.Drawing.Point(378, 23);
+            this.btnDisplayAll.Name = "btnDisplayAll";
+            this.btnDisplayAll.Size = new System.Drawing.Size(116, 21);
+            this.btnDisplayAll.TabIndex = 3;
+            this.btnDisplayAll.Text = "Display All";
+            this.btnDisplayAll.UseVisualStyleBackColor = true;
+            this.btnDisplayAll.Click += new System.EventHandler(this.btnDisplayAll_Click);
+            // 
+            // btnDetails
+            // 
+            this.btnDetails.Location = new System.Drawing.Point(515, 23);
+            this.btnDetails.Name = "btnDetails";
+            this.btnDetails.Size = new System.Drawing.Size(116, 20);
+            this.btnDetails.TabIndex = 4;
+            this.btnDetails.Text = "Details";
+            this.btnDetails.UseVisualStyleBackColor = true;
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -131,34 +160,6 @@
             // 
             this.personDataSet.DataSetName = "PersonDataSet";
             this.personDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // textBoxQuery
-            // 
-            this.textBoxQuery.Location = new System.Drawing.Point(12, 24);
-            this.textBoxQuery.Name = "textBoxQuery";
-            this.textBoxQuery.Size = new System.Drawing.Size(342, 20);
-            this.textBoxQuery.TabIndex = 1;
-            this.textBoxQuery.TextChanged += new System.EventHandler(this.textBoxQuery_TextChanged);
-            // 
-            // btnDisplayAll
-            // 
-            this.btnDisplayAll.Location = new System.Drawing.Point(378, 23);
-            this.btnDisplayAll.Name = "btnDisplayAll";
-            this.btnDisplayAll.Size = new System.Drawing.Size(116, 21);
-            this.btnDisplayAll.TabIndex = 3;
-            this.btnDisplayAll.Text = "Display All";
-            this.btnDisplayAll.UseVisualStyleBackColor = true;
-            this.btnDisplayAll.Click += new System.EventHandler(this.btnDisplayAll_Click);
-            // 
-            // btnDetails
-            // 
-            this.btnDetails.Location = new System.Drawing.Point(515, 23);
-            this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(116, 20);
-            this.btnDetails.TabIndex = 4;
-            this.btnDetails.Text = "Details";
-            this.btnDetails.UseVisualStyleBackColor = true;
-            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // personTableAdapter
             // 
