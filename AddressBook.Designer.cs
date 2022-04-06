@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridContacts = new System.Windows.Forms.DataGridView();
-            this.textBoxQuery = new System.Windows.Forms.TextBox();
-            this.btnQuery = new System.Windows.Forms.Button();
-            this.btnDisplayAll = new System.Windows.Forms.Button();
-            this.btnDetails = new System.Windows.Forms.Button();
-            this.personDataSet = new Program9.PersonDataSet();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personTableAdapter = new Program9.PersonDataSetTableAdapters.PersonTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +37,15 @@
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personDataSet = new Program9.PersonDataSet();
+            this.textBoxQuery = new System.Windows.Forms.TextBox();
+            this.btnDisplayAll = new System.Windows.Forms.Button();
+            this.btnDetails = new System.Windows.Forms.Button();
+            this.personTableAdapter = new Program9.PersonDataSetTableAdapters.PersonTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridContacts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridContacts
@@ -70,56 +69,8 @@
             this.dataGridContacts.MultiSelect = false;
             this.dataGridContacts.Name = "dataGridContacts";
             this.dataGridContacts.ReadOnly = true;
-            this.dataGridContacts.Size = new System.Drawing.Size(776, 388);
+            this.dataGridContacts.Size = new System.Drawing.Size(648, 388);
             this.dataGridContacts.TabIndex = 0;
-            // 
-            // textBoxQuery
-            // 
-            this.textBoxQuery.Location = new System.Drawing.Point(12, 24);
-            this.textBoxQuery.Name = "textBoxQuery";
-            this.textBoxQuery.Size = new System.Drawing.Size(409, 20);
-            this.textBoxQuery.TabIndex = 1;
-            // 
-            // btnQuery
-            // 
-            this.btnQuery.Location = new System.Drawing.Point(443, 23);
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(96, 20);
-            this.btnQuery.TabIndex = 2;
-            this.btnQuery.Text = "Query by Name";
-            this.btnQuery.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayAll
-            // 
-            this.btnDisplayAll.Location = new System.Drawing.Point(564, 23);
-            this.btnDisplayAll.Name = "btnDisplayAll";
-            this.btnDisplayAll.Size = new System.Drawing.Size(96, 20);
-            this.btnDisplayAll.TabIndex = 3;
-            this.btnDisplayAll.Text = "Display All";
-            this.btnDisplayAll.UseVisualStyleBackColor = true;
-            // 
-            // btnDetails
-            // 
-            this.btnDetails.Location = new System.Drawing.Point(690, 23);
-            this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(96, 20);
-            this.btnDetails.TabIndex = 4;
-            this.btnDetails.Text = "Details";
-            this.btnDetails.UseVisualStyleBackColor = true;
-            // 
-            // personDataSet
-            // 
-            this.personDataSet.DataSetName = "PersonDataSet";
-            this.personDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataMember = "Person";
-            this.personBindingSource.DataSource = this.personDataSet;
-            // 
-            // personTableAdapter
-            // 
-            this.personTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -171,22 +122,65 @@
             this.zipcodeDataGridViewTextBoxColumn.Name = "zipcodeDataGridViewTextBoxColumn";
             this.zipcodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataMember = "Person";
+            this.personBindingSource.DataSource = this.personDataSet;
+            // 
+            // personDataSet
+            // 
+            this.personDataSet.DataSetName = "PersonDataSet";
+            this.personDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // textBoxQuery
+            // 
+            this.textBoxQuery.Location = new System.Drawing.Point(12, 24);
+            this.textBoxQuery.Name = "textBoxQuery";
+            this.textBoxQuery.Size = new System.Drawing.Size(342, 20);
+            this.textBoxQuery.TabIndex = 1;
+            this.textBoxQuery.TextChanged += new System.EventHandler(this.textBoxQuery_TextChanged);
+            // 
+            // btnDisplayAll
+            // 
+            this.btnDisplayAll.Location = new System.Drawing.Point(378, 23);
+            this.btnDisplayAll.Name = "btnDisplayAll";
+            this.btnDisplayAll.Size = new System.Drawing.Size(116, 21);
+            this.btnDisplayAll.TabIndex = 3;
+            this.btnDisplayAll.Text = "Display All";
+            this.btnDisplayAll.UseVisualStyleBackColor = true;
+            this.btnDisplayAll.Click += new System.EventHandler(this.btnDisplayAll_Click);
+            // 
+            // btnDetails
+            // 
+            this.btnDetails.Location = new System.Drawing.Point(515, 23);
+            this.btnDetails.Name = "btnDetails";
+            this.btnDetails.Size = new System.Drawing.Size(116, 20);
+            this.btnDetails.TabIndex = 4;
+            this.btnDetails.Text = "Details";
+            this.btnDetails.UseVisualStyleBackColor = true;
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
+            // 
+            // personTableAdapter
+            // 
+            this.personTableAdapter.ClearBeforeFill = true;
+            // 
             // frmAddressBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(677, 450);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.btnDisplayAll);
-            this.Controls.Add(this.btnQuery);
             this.Controls.Add(this.textBoxQuery);
             this.Controls.Add(this.dataGridContacts);
+            this.MaximumSize = new System.Drawing.Size(693, 489);
+            this.MinimumSize = new System.Drawing.Size(693, 489);
             this.Name = "frmAddressBook";
             this.Text = "Address Book";
             this.Load += new System.EventHandler(this.frmAddressBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridContacts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +190,6 @@
 
         private System.Windows.Forms.DataGridView dataGridContacts;
         private System.Windows.Forms.TextBox textBoxQuery;
-        private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Button btnDisplayAll;
         private System.Windows.Forms.Button btnDetails;
         private PersonDataSet personDataSet;

@@ -23,5 +23,29 @@ namespace Program9
             this.personTableAdapter.Fill(this.personDataSet.Person);
 
         }
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            // Create instance of Modify form
+            Modify details = new Modify();
+
+            // Display form
+            details.ShowDialog();
+
+            // Fill dataset
+            this.personTableAdapter.Fill(this.personDataSet.Person);
+        }
+
+
+        private void btnDisplayAll_Click(object sender, EventArgs e)
+        {
+            textBoxQuery.Clear();
+            this.personTableAdapter.Fill(this.personDataSet.Person);
+        }
+
+        private void textBoxQuery_TextChanged(object sender, EventArgs e)
+        {
+            this.personTableAdapter.FillBySearch(this.personDataSet.Person, textBoxQuery.Text);
+        }
     }
 }
